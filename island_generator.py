@@ -9,7 +9,7 @@ print("SEED:", SEED)
 OCTAVES = 3
 PERSISTENCE = 0.3
 LACUNARITY = 3.0
-IMG_SIZE = 1024
+IMG_SIZE = 2048
 LANDSCAPE_SCALE = 0.1
 FREQUENCY = IMG_SIZE * LANDSCAPE_SCALE * OCTAVES
 
@@ -69,3 +69,7 @@ for row in generate_heightmap():
 img = Image.new("RGB", (IMG_SIZE, IMG_SIZE))
 img.putdata(islandify(flat_array))
 img.save("output.png")
+
+img_height = Image.new("L", (IMG_SIZE, IMG_SIZE))
+img_height.putdata(flat_array)
+img_height.save("output_height.png")
